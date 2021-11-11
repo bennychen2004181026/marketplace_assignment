@@ -40,3 +40,6 @@ gem 'devise'
 
 # Form helper
 gem 'simple_form'
+
+# Frontend Css
+gem 'bootstrap'
