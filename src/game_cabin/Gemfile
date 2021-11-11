@@ -32,3 +32,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# Custom gems
+# Authentication
+gem 'devise'
+
+# Form helper
+gem 'simple_form'
