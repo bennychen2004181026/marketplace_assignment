@@ -61,6 +61,7 @@ gem 'devise'
 gem 'simple_form'
 
 # Frontend Css & JavaStript
+gem 'bootstrap-sass'
 gem 'bootstrap'
 gem "font-awesome-rails"
 gem 'jquery-rails'
