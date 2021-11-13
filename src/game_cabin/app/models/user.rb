@@ -7,5 +7,4 @@ class User < ApplicationRecord
   def username
     self.email.split('@').first
   end
-
 end
