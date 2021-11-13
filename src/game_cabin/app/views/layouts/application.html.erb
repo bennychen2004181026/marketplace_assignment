@@ -17,7 +17,9 @@
       <% unless flash[:notice].blank? %>
         <div class="alert alert-info"><%= flash[:notice] %></div>
       <% end %>
-      
+      <% unless flash[:alert].blank? %>
+        <div class="alert alert-info"><%= flash[:alert] %></div>
+      <% end %>
       <%= yield %>
     </div>
 
