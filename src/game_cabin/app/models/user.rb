@@ -7,8 +7,9 @@ class User < ApplicationRecord
 
   # Two kind of user role
 
-  enum role: %i[user admin]
-  after_initialize :set_default_role, if: :new_record?
+  enum role: [:user, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+
 
   # When new user create, it's normal user account
 
@@ -21,5 +22,5 @@ class User < ApplicationRecord
   def username
     email.split('@').first
   end
-  
+
 end
