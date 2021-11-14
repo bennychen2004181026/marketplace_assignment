@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  # Just for making sure you can realize mistake in case you forgot to authorize your controller action
   after_action :verify_authorized, except: [:show]
 
   def index
