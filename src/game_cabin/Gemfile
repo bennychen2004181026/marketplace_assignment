@@ -73,3 +73,6 @@ gem 'jquery-rails'
 
 # For organising the records as a tree structure (or hierarchy)
 gem 'ancestry'
+
+# Authorization gem
+gem "pundit"
