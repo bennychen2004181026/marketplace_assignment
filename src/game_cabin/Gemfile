@@ -65,3 +65,6 @@ gem 'bootstrap-sass'
 gem 'bootstrap'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+
+# For organising the records as a tree structure (or hierarchy)
+gem 'ancestry'
