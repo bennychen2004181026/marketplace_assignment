@@ -1,2 +1,7 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<% if !@user.nil? %>
+<% @users.each do |user| %>
+  <p>User: <%=link_to user.email, user %> Role: <%= user.role unless user.role.nil? %></p>
+<% end %>
+<% end %>

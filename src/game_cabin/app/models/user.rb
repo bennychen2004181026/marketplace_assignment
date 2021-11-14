@@ -5,7 +5,21 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
-  def username
-    self.email.split('@').first
+  # Two kind of user role
+
+  enum role: %i[user admin]
+  after_initialize :set_default_role, if: :new_record?
+
+  # When new user create, it's normal user account
+
+  def set_default_role
+    self.role ||= :user
   end
+
+  # helper for better name displaying
+
+  def username
+    email.split('@').first
+  end
+  
 end
