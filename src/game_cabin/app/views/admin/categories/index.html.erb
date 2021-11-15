@@ -2,7 +2,7 @@
 <p>Find me in app/views/admin/categories/index.html.erb</p>
 <div>
   <div class="pull-right">
-    <%= link_to "Add New Category", new_admin_category_path, class: "btn btn-primary" %>
+    <%= link_to "New Category", new_admin_category_path, class: "btn btn-primary" %>
   </div>
 
   <h1>
@@ -32,9 +32,10 @@
         <td align="right">
           <%= link_to "Edit", edit_admin_category_path(category) %> 
           <%= link_to "Delete", admin_category_path(category), method: :delete, 'data-confirm': "Are you sure of deleting the category?" %>
+          <%# Method root is provided by ancestry gem %>
           <% if category.root? %>
-            <%= link_to "Check out the sub-category", admin_categories_path(id: category) %>
-          <% end -%>
+            <%= link_to "Sub-category", admin_categories_path(id: category) %>
+          <% end %>
         </td>
       </tr>
     <% end %>

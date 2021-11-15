@@ -1,6 +1,7 @@
 <div>
-<%# Identify if the category object is a new one, then lead to different action %>
-  <h1><%= @category.new_record? ? "New Category" : "Edit Category ##{params[:id]}" %></h1>
+<%# Identify if the category object is a new one or a need edit omne, then lead to different action %>
+<%# The new action can be involved in editing and updating function, denpends on @category object is empty or not%>
+  <h1><%= @category.new_record? ? "New Category" : "Edit Category #{params[:id]}" %></h1>
 </div>
 <%# admin_categories_path is for creat action in category %>
 <%# admin_category_path(object) is for update action in category %>
@@ -36,6 +37,7 @@
       </div>
     </div>
     <div class="form-group">
+    <%# Name is required%>
       <label for="title" class="col-sm-2 control-label">Name:*</label>
       <div class="col-sm-5">
         <%= f.text_field :title, class: "form-control" %>
