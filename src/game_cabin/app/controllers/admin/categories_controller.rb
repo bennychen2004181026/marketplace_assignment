@@ -26,7 +26,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new(params.require(:category).permit(:title,:weight,:products_quantity,:ancestry))
 
     if @category.save
-      flash[:notice] = "Successfully saved"
+      flash[:notice] = "Successfully saved."
       redirect_to admin_categories_path
     else
       # Re initializing a new Category
@@ -42,7 +42,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category.attributes = params.require(:category).permit(:title,:weight,:products_quantity,:ancestry)
 
     if @category.save
-      flash[:notice] = "Successfully updated"
+      flash[:notice] = "Successfully updated."
       redirect_to admin_categories_path
     else
       render action: :new
@@ -51,10 +51,10 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     if @category.destroy
-      flash[:notice] = "Successfully Deleted"
+      flash[:notice] = "Successfully Deleted."
       redirect_to admin_categories_path
     else
-      flash[:notice] = "Failed to delete"
+      flash[:alert] = "Failed to delete!"
       # When it failed to delete, the page will stay in the current page, in case admin user is at the page of more than one
       # Redirect_back redirects the browser to the page that issued the request (the referrer) if possible
       redirect_back
