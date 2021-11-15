@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
 
-  before_action :ser_root_categories, only: [:new, :create, :edit, :update]
+  before_action :set_root_categories, only: [:new, :create, :edit, :update]
   before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
@@ -30,7 +30,7 @@ class Admin::CategoriesController < Admin::BaseController
       redirect_to admin_categories_path
     else
       # Re initializing a new Category
-      redirect_to new_admin_category_path
+      render action: :new
     end
   end
 
@@ -45,7 +45,7 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:notice] = "Successfully updated"
       redirect_to admin_categories_path
     else
-      redirect_to new_admin_category_path
+      render action: :new
     end
   end
 

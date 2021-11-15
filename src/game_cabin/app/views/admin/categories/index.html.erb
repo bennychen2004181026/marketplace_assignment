@@ -8,6 +8,7 @@
   <h1>
     <% if @category %>
     <%# Method: WillPaginate::ActiveRecord::RelationMethods#total_entries %>
+    <%# Title identifies the name of first class and second class name if have any and the quantity of that category%>
       Category:<%= @category.title %>(<%= @categories.total_entries %>)
     <% else %>
       Category(<%= @categories.total_entries %>)
