@@ -65,14 +65,16 @@ gem 'devise'
 # Form helper
 gem 'simple_form'
 
-# Frontend Css & JavaStript
+# Frontend styling
 gem 'bootstrap-sass'
 gem 'bootstrap'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.3'
 
 # For organising the records as a tree structure (or hierarchy)
 gem 'ancestry'
 
 # Authorization gem
 gem "pundit"
+
