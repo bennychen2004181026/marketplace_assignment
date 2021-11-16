@@ -78,3 +78,5 @@ gem 'ancestry'
 # Authorization gem
 gem "pundit"
 
+# Assets uploading and storage gem
+gem "aws-sdk-s3", "~> 1.105"
