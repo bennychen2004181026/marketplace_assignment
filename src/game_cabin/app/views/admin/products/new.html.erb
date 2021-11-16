@@ -44,9 +44,9 @@
       <label for="title" class="col-sm-2 control-label">Status:*</label>
       <div class="col-sm-5">
         <select name="product[status]">
-          <% [[Product::Status::On, 'Available'], [Product::Status::Off, 'Not Available']].each do |row| %>
-            <option value="<%= row.first %>" <%= 'selected' if @product.status == row.first %>><%= row.last %></option>
-          <% end -%>
+          <% [[Product::Status::Available, 'Available'], [Product::Status::Not_Available, 'Not Available']].each do |e| %>
+            <option value="<%= e.first %>" <%= 'selected' if @product.status == e.first %>><%= e.last %></option>
+          <% end %>
         </select>
       </div>
     </div>

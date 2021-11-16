@@ -1,4 +1,6 @@
+
 class Product < ApplicationRecord
+
     # Registers a setting Universally Unique IDentifier callback for product item to be called before a record is created
     before_create :set_uuid
     belongs_to :category
@@ -25,6 +27,9 @@ class Product < ApplicationRecord
 
     validates :description, presence: { message: "Should have description." }
   
+    scope :onshelf, -> { where(status: Status::Available) }
+
+
 
     private
     # Rails 6 method for generate a Version 4 UUIDs.
