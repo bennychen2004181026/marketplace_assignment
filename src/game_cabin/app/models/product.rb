@@ -1,9 +1,14 @@
-
 class Product < ApplicationRecord
 
-    # Registers a setting Universally Unique IDentifier callback for product item to be called before a record is created
-    before_create :set_uuid
-    belongs_to :category
+  has_one_attached :product_image do |attachable|
+  attachable.variant :medium, resize: "200x200"
+  attachable.variant :large, resize: "300x300"
+  attachable.variant :thumb, resize: "100x100"
+end
+  belongs_to :category
+
+  before_create :set_uuid
+    
 
 
     validates :category_id, presence: { message: "Should has a category." }
@@ -23,13 +28,14 @@ class Product < ApplicationRecord
     validates :price, numericality: { message: "Price should be a number." },
       if: proc { |product| !product.price.blank? }
 
-    
+    validates :product_image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg','image/gif'],
+    size: { less_than: 8.megabytes , message: 'is too bid, maximin size is 8mb!' }
 
     validates :description, presence: { message: "Should have description." }
   
     scope :onshelf, -> { where(status: Status::Available) }
 
-
+   
 
     private
     # Rails 6 method for generate a Version 4 UUIDs.

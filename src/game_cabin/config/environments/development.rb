@@ -61,4 +61,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::FileUpdateChecker
   # For devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # specify the AWS configuration variables 
 end
