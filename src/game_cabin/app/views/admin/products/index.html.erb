@@ -9,8 +9,10 @@
 </div>
 
 <div>
+
   <table class="table table-striped">
     <tr>
+      <th>Photo</th>
       <th>ID</th>
       <th>Name</th>
       <th>UUID</th>
@@ -22,6 +24,7 @@
 
     <% @products.each do |product| %>
       <tr>
+        <td><%= image_tag product.product_image.variant(resize_to_limit: [150, 150]) %></td>
         <td><%= product.id %></td>
         <td><%= product.title %></td>
         <td><%= product.uuid %></td>
@@ -31,7 +34,6 @@
         <td align="right">
           <%= link_to "Edit", edit_admin_product_path(product) %> 
           <%= link_to "Delete", admin_product_path(product), method: :delete, 'data-confirm': "Are you sure?" %>
-          <%= link_to "Image Manage", admin_product_product_images_path(product_id: product) %>
         </td>
       </tr>
     <% end -%>

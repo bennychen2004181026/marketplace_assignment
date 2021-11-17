@@ -11,6 +11,8 @@ class Category < ApplicationRecord
 
     validates :title, presence: { message: "The title should not be empty" }
     validates :title, uniqueness: { message: "The title already exists" }
+    validates :title, length: { maximum: 30,
+      too_long: "%{count} characters is the maximum allowed" }
   
     private
     def init_ancestry

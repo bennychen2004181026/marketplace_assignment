@@ -13,10 +13,10 @@
         <ul class="list-unstyled">
           <% @product.errors.messages.values.flatten.each do |error| %>
             <li><i class="fa fa-exclamation-circle"></i> <%= error %></li>
-          <% end -%>
+          <% end %>
         </ul>
       </div>
-    <% end -%>
+    <% end %>
 
 
     <div class="form-group">
@@ -35,8 +35,8 @@
 
             <% category.children.each do |sub_category| %>
               <option value="<%= sub_category.id %>" <%= @product.category_id == sub_category.id ? 'selected' : '' %>><%= sub_category.title %></option>
-            <% end -%>
-          <% end -%>
+            <% end %>
+          <% end %>
         </select>
       </div>
     </div>
@@ -44,7 +44,7 @@
       <label for="title" class="col-sm-2 control-label">Status:*</label>
       <div class="col-sm-5">
         <select name="product[status]">
-          <% [[Product::Status::Available, 'Available'], [Product::Status::Not_Available, 'Not Available']].each do |e| %>
+          <% [[Product::Status::Available, 'Available'], [Product::Status::Not_available, 'Not Available']].each do |e| %>
             <option value="<%= e.first %>" <%= 'selected' if @product.status == e.first %>><%= e.last %></option>
           <% end %>
         </select>
@@ -60,6 +60,12 @@
       <label for="price" class="col-sm-2 control-label">Price*:</label>
       <div class="col-sm-5">
         <%= f.text_field :price, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="product_image" class="col-sm-2 control-label">Image*:</label>
+      <div class="col-sm-5">
+        <%= f.file_field :product_image, class: "form-control" %>
       </div>
     </div>
     

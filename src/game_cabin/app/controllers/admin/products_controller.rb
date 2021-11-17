@@ -3,6 +3,7 @@ class Admin::ProductsController < Admin::BaseController
 
 
   before_action :find_product, only: [:edit, :update, :destroy]
+  before_action :product_params, only: [:create, :update]
 
 
 
@@ -26,7 +27,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
 
-    @product = Product.new(params.require(:product).permit(:category_id,:title,:status,:amount,:uuid,:price,:description))
+    @product = Product.create(product_params)
 
     @root_categories = Category.roots
 
@@ -39,7 +40,7 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to admin_products_path
 
     else
-
+      flash[:alert] = "Sorry, it failed."
       render action: :new
 
     end
@@ -60,7 +61,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def update
 
-    @product.attributes = params.require(:product).permit(:category_id,:title,:status,:amount, :uuid, :price, :description)
+    @product.attributes = product_params
 
     @root_categories = Category.roots
 
@@ -71,7 +72,7 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to admin_products_path
 
     else
-
+      flash[:alert] = "Failed to update."
       render action: :new
 
     end
@@ -108,6 +109,9 @@ class Admin::ProductsController < Admin::BaseController
 
   end
 
-
+  private
+    def product_params
+      params.require(:product).permit(:category_id,:title,:status,:amount, :uuid, :price, :description,:product_image)
+    end
 
 end
