@@ -33,9 +33,5 @@ class Category < ApplicationRecord
         result << row
       end
     end
-    private
-    def init_ancestry
-      self.ancestry = nil if self.ancestry.blank?
-    end
 
 end
