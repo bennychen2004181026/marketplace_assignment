@@ -37,7 +37,7 @@ class Product < ApplicationRecord
     validates :description, length: { maximum: 1000,
       too_long: "%{count} characters is the maximum allowed" }
   
-    scope :onshelf, -> { where(status: Status::Available) }
+    scope :available, -> { where(status: Status::Available) }
 
    
 
