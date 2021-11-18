@@ -20,8 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -65,11 +64,25 @@ gem 'devise'
 # Form helper
 gem 'simple_form'
 
-# Frontend Css & JavaStript
+# Frontend styling
 gem 'bootstrap-sass'
 gem 'bootstrap'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.3'
 
 # For organising the records as a tree structure (or hierarchy)
 gem 'ancestry'
+
+# Authorization gem
+gem "pundit"
+
+# Assets uploading and storage gem
+# Aws is for for storing images in the cloud.
+gem "aws-sdk-s3", "~> 1.105"
+
+# Use Active Storage variant
+gem 'image_processing', '~> 1.2'
+
+# Provide simple active_storage_validations
+gem 'active_storage_validations'

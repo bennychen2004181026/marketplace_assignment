@@ -7,9 +7,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
 
 
 
@@ -19,3 +16,8 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets

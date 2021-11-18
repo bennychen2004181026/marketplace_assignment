@@ -1,6 +1,11 @@
 class Category < ApplicationRecord
-    has_ancestry
+    # For initialzing ancestry attribute to nil 
+    before_validation :init_ancestry
+    # Orphan_strategy method identifies what to do with children of a node that is destroyed.
+    # Destroy  option is telling that  all children are destroyed as well (default).
+    has_ancestry orphan_strategy: :destroy
     has_many :products, dependent: :destroy
+
 
     validates :title, presence: { message: "The title should not be empty" }
     validates :title, uniqueness: { message: "The title already exists" }
