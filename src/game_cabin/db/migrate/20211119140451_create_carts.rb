@@ -12,7 +12,7 @@ class CreateCarts < ActiveRecord::Migration[6.0]
       # In this progress, session is involved to deal with the user_uuid delivery.
       t.references :user_uuid, index: true, foreign_key: {to_table: :users}
       t.references :product, null: true, foreign_key: true
-      t.integer :amount
+      t.integer :amount, default: 0
       t.timestamps
     end
   end

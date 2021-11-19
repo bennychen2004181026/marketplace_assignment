@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       # May design different status for product item later
       t.string :status, default: 'Not available'
       t.integer :amount, default: 0
-      t.string :uuid
+      t.string :uuid, null: false
       t.decimal :price, precision: 10, scale: 2
       t.text :description, null: false
       t.timestamps
