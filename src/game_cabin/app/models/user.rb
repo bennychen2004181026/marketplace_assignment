@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   before_create :set_user_uuid
 
+  has_many :carts
+
   # When new user create, it's normal user account.
   # And it ensures all user records has an unique uuid
   def set_default_role
@@ -26,6 +28,6 @@ class User < ApplicationRecord
   end
   private
   def set_user_uuid
-    self.uuid = SecureRandom.base36(24)
+    self.user_uuid = SecureRandom.base36(24)
   end
 end

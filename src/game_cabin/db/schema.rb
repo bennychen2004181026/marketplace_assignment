@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(version: 2021_11_19_140451) do
 
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "user_uuid_id"
+    t.string "user_uuid"
     t.bigint "product_id"
     t.integer "amount", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_carts_on_product_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
-    t.index ["user_uuid_id"], name: "index_carts_on_user_uuid_id"
+    t.index ["user_uuid"], name: "index_carts_on_user_uuid"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2021_11_19_140451) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name", null: false
     t.string "role", null: false
     t.string "user_uuid"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -99,6 +98,5 @@ ActiveRecord::Schema.define(version: 2021_11_19_140451) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
-  add_foreign_key "carts", "users", column: "user_uuid_id"
   add_foreign_key "products", "categories"
 end

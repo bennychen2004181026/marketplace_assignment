@@ -1,0 +1,42 @@
+<h1>Shopping Cart (<%= @carts.count %>)</h1>
+<div class="row">
+  <div class="container">
+    <div class="alert alert-info">
+      <% unless @carts.blank? %>
+        <% @carts.each do |cart| %>
+          <div class="media cart-row">
+            <div class="media-left">
+              <a href="<%= product_path(cart.product) %>">
+                <%= image_tag cart.product.product_image, class: 'media-object', alt: cart.product.title %>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to cart.product.title, product_path(cart.product) %></h4>
+              Amount: <%= cart.amount %> Price: $<%= cart.amount * cart.product.price %>
+            </div>
+            <div class="media-right">
+              <%= form_tag cart_path(cart), method: :put do %>
+                <p><input type="text" name="amount" value="<%= cart.amount %>" /></p>
+                <p>
+                  <%= submit_tag "Renew", class: "btn btn-default btn-xs" %>
+                  <%= link_to "Delete", cart_path(cart), method: :delete, 'data-confirm': "Are you sure?", class: "btn btn-default btn-xs" %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h3>The shopping cart is empty</h3>
+      <% end %>
+    </div>
+
+    <% unless @carts.blank? %>
+      <div class="pull-right">
+        <strong>Total price: $<%= @carts.sum { |cart| cart.amount * cart.product.price } %></strong>
+        &nbsp;
+        <%= link_to "Check out", new_order_path, class: "btn btn-danger btn-lg" %>
+      </div>
+      <div class="clearfix"></div>
+    <% end %>
+  </div>
+</div>

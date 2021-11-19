@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
      # And there is another invoke needed in the categories controller as well,
     # so I choose define the method in application controller rather than using 
     # before_action method.
-    get_categories
+    get_categories_and_carts_num
     @product = Product.find(params[:id])
   end
 

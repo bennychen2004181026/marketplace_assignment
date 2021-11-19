@@ -16,9 +16,11 @@ class ApplicationController < ActionController::Base
     # Protected is a method tha let the inherited controllers to invoke the methods inside.
     protected
 
-    def get_categories
+    def get_categories_and_carts_num
       @categories = Category.grouped_data
+      @cart_count = Cart.by_user_uuid(session[:user_uuid]).count
     end
+
 
     def set_user_uuid_in_cookies
       # Try to fetch user_uuid from cookies and assign it to a variable uuid.
@@ -28,7 +30,7 @@ class ApplicationController < ActionController::Base
       unless uuid
         # Devise helper for verifing if a user is signed in
         if user_signed_in?
-        # If it's log in and using devise helper current_user to get the uuid and assign it to uuid variable.
+        # If it's log in and using devise helper current_user to get the uuid and assign it to cookies uuid variable.
           uuid = current_user.uuid
         else
         # If not log in then generate a unique string by rails helper SecureRandom.base36(24) and assign it to uuid.
@@ -41,9 +43,9 @@ class ApplicationController < ActionController::Base
     # Sets a simple session cookie.
     # This cookie will be deleted when the user's browser is closed.
     def update_session_uuid uuid
-    # A uuid in cookies can only last for 4 hours before leaving the page or log out for security reson.
+    # A uuid in cookies can last long enough before leaving the page or log out for security reson.
     # The uuid stored in the session will be used when new user sign up
-      session[:user_uuid] = cookies['user_uuid'] = { value: uuid, expires: 4.hour }
+    session[:user_uuid] = cookies.permanent['user_uuid'] = uuid
     end
 
     # Private methods can only be used within the class definition.The only way to have external access to a private 

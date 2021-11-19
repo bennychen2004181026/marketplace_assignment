@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
     # And there is another invoke needed in the product controller as well,
     # so I choose define the method in application controller rather than using 
     # before_action method.
-    get_categories
+    get_categories_and_carts_num
     
     @category = Category.find(params[:id])
     @products = @category.products.available.page(params[:page] || 1).per_page(params[:per_page] || 12)

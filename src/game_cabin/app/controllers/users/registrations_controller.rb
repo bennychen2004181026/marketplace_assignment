@@ -1,19 +1,32 @@
 # frozen_string_literal: true
 
-class User::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   # before_action :update_sanitized_params, if: :devise_controller?
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+
+  def create
+    super
+
+    @user = User.new(params.require(:user)
+       .permit(:email, :password, :password_confirmation, :cellphone, :token))
+    @user.uuid = session[:user_uuid]
+
+    if @user.save
+      flash[:notice] = 'Successfully sign up!'
+      redirect_to new_session_path
+    else
+      flash[:notice] = 'Something wrong!'
+      render action: :new
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,8 +51,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
-  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

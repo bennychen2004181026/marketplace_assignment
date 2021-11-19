@@ -10,10 +10,14 @@ class CreateCarts < ActiveRecord::Migration[6.0]
       # to the temperary shopping cart if the user want to sign up a new account.
       # If the user is already exists and login, then the existed user_uuid will re-assign to this shopping cart item.
       # In this progress, session is involved to deal with the user_uuid delivery.
-      t.references :user_uuid, index: true, foreign_key: {to_table: :users}
+      t.string :user_uuid
       t.references :product, null: true, foreign_key: true
       t.integer :amount, default: 0
       t.timestamps
     end
+
+    add_index :carts, [:user_uuid]
+  
+   
   end
 end
