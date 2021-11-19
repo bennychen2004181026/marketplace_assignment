@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_041854) do
+ActiveRecord::Schema.define(version: 2021_11_19_140451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,20 @@ ActiveRecord::Schema.define(version: 2021_11_17_041854) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "user_uuid_id"
+    t.bigint "product_id"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_carts_on_product_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+    t.index ["user_uuid_id"], name: "index_carts_on_user_uuid_id"
+  end
+
   create_table "categories", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.integer "weight", default: 0
     t.integer "products_quantity", default: 0
     t.datetime "created_at", precision: 6, null: false
@@ -49,12 +61,12 @@ ActiveRecord::Schema.define(version: 2021_11_17_041854) do
 
   create_table "products", force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.string "title"
+    t.string "title", null: false
     t.string "status", default: "Not available"
     t.integer "amount", default: 0
     t.string "uuid"
     t.decimal "price", precision: 10, scale: 2
-    t.text "description"
+    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
@@ -69,19 +81,24 @@ ActiveRecord::Schema.define(version: 2021_11_17_041854) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "role"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.string "user_uuid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_uuid"], name: "index_users_on_user_uuid"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "products"
+  add_foreign_key "carts", "users"
+  add_foreign_key "carts", "users", column: "user_uuid_id"
   add_foreign_key "products", "categories"
 end

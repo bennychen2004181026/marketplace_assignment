@@ -2,13 +2,13 @@ class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
       t.references :category, null: false, foreign_key: true
-      t.string :title
+      t.string :title, null: false
       # May design different status for product item later
       t.string :status, default: 'Not available'
       t.integer :amount, default: 0
       t.string :uuid
       t.decimal :price, precision: 10, scale: 2
-      t.text :description
+      t.text :description, null: false
       t.timestamps
     end
     # Add indexes for different conditions searching and display
