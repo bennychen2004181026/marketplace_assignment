@@ -4,18 +4,18 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource/sign_in
   def create
     super
-    if user == login(params[:email], params[:password])
-      update_session_uuid user.uuid
+    if user_signed_in?
+      update_session_uuid current_user.uuid
 
       flash[:notice] = "Successful login!"
-      redirect_to root_path
+  
     else
       flash[:notice] = "Incorrect email or password!"
       redirect_to new_session_path

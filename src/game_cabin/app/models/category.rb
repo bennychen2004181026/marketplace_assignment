@@ -34,4 +34,9 @@ class Category < ApplicationRecord
       end
     end
 
+    private
+  def init_ancestry
+    self.ancestry = nil if self.ancestry.blank?
+  end
+
 end

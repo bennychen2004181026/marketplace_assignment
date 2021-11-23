@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
     def get_categories_and_carts_num
       @categories = Category.grouped_data
-      @cart_count = Cart.by_user_uuid(session[:user_uuid]).count
+      @shopping_cart_count = ShoppingCart.by_user_uuid(session[:user_uuid]).count
     end
 
 
@@ -31,10 +31,10 @@ class ApplicationController < ActionController::Base
         # Devise helper for verifing if a user is signed in
         if user_signed_in?
         # If it's log in and using devise helper current_user to get the uuid and assign it to cookies uuid variable.
-          uuid = current_user.uuid
+        uuid = current_user.uuid
         else
         # If not log in then generate a unique string by rails helper SecureRandom.base36(24) and assign it to uuid.
-          uuid = SecureRandom.base36(24)
+        uuid = SecureRandom.base36(24)
         end
       end
      # Invoke a reusable method below
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     end
     # Sets a simple session cookie.
     # This cookie will be deleted when the user's browser is closed.
-    def update_session_uuid uuid
+    def update_session_uuid  uuid
     # A uuid in cookies can last long enough before leaving the page or log out for security reson.
     # The uuid stored in the session will be used when new user sign up
     session[:user_uuid] = cookies.permanent['user_uuid'] = uuid

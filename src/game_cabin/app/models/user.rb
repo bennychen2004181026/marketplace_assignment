@@ -10,8 +10,7 @@ class User < ApplicationRecord
   enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
-  before_create :set_user_uuid
-
+  
   has_many :carts
 
   # When new user create, it's normal user account.
@@ -26,8 +25,5 @@ class User < ApplicationRecord
   def username
     email.split('@').first
   end
-  private
-  def set_user_uuid
-    self.user_uuid = SecureRandom.base36(24)
-  end
+ 
 end

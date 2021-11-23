@@ -35,7 +35,7 @@
           <%= link_to "Delete", admin_category_path(category), method: :delete, 'data-confirm': "Are you sure of deleting the category?" %>
           <%# Method root is provided by ancestry gem %>
           <% if category.root? %>
-            <%= link_to "Sub-category", admin_categories_path(id: category) %>
+            <%= link_to "Add Sub-category", admin_categories_path(id: category) %>
           <% end %>
         </td>
       </tr>

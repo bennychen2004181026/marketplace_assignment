@@ -13,15 +13,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
 
   def create
-    super
 
     @user = User.new(params.require(:user)
-       .permit(:email, :password, :password_confirmation, :cellphone, :token))
-    @user.uuid = session[:user_uuid]
-
+       .permit(:email, :password, :password_confirmation))
+     @user.uuid = session[:user_uuid]
+     
     if @user.save
       flash[:notice] = 'Successfully sign up!'
-      redirect_to new_session_path
+      redirect_to root_path
     else
       flash[:notice] = 'Something wrong!'
       render action: :new

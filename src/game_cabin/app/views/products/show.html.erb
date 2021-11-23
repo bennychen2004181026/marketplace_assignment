@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-xs-6 col-md-3">
           <a href="#" class="thumbnail detail">
-            <%= image_tag @product.product_image %>
+            <%= image_tag @product.product_image.representation(resize_to_limit: [160, 160]).processed.service_url %>
           </a>
         </div>
     </div>
@@ -24,7 +24,9 @@
       <li>Inventory: <%= @product.amount %></li>
     </ul>
     <h3><strong>$<%= @product.price %></strong> 
-
+    <p>Amount: <input type="text" name="amount" value="1" /></p>
+    <%# Invoke the helper module in application_helper.rb to return a link to check out the total carts%>
+    <p><%= show_add_to_cart @product %></p>
 
     <br />
     <br />

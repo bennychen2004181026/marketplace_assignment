@@ -1,6 +1,6 @@
-class CreateCarts < ActiveRecord::Migration[6.0]
+class CreateShoppingCarts < ActiveRecord::Migration[6.0]
   def change
-    create_table :carts do |t|
+    create_table :shopping_carts do |t|
       # Because I am going to allow a shopping cart be created before sign in or sign up, which means
       # the cart can belongs to nobody at the beginning, so the user_id can be nill.
       t.references :user, null: true, foreign_key: true
@@ -11,13 +11,11 @@ class CreateCarts < ActiveRecord::Migration[6.0]
       # If the user is already exists and login, then the existed user_uuid will re-assign to this shopping cart item.
       # In this progress, session is involved to deal with the user_uuid delivery.
       t.string :user_uuid
-      t.references :product, null: true, foreign_key: true
-      t.integer :amount, default: 0
+      t.references :product, null: false, foreign_key: true
+      t.integer :amount
       t.timestamps
     end
 
-    add_index :carts, [:user_uuid]
-  
-   
+    add_index :shopping_carts, [:user_uuid]
   end
 end
