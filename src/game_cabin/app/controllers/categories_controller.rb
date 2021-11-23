@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
     get_categories_and_carts_num
     
     @category = Category.find(params[:id])
+    # Available scope method is from product model
     @products = @category.products.available.page(params[:page] || 1).per_page(params[:per_page] || 12)
       .order("id desc")
   end

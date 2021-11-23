@@ -9,7 +9,7 @@ h1>Cart (<%= @shopping_carts.count %>)</h1>
             <div class="media-left">
             
               <a href="<%= product_path(shopping_cart.product) %>">
-                <%= image_tag shopping_cart.product.product_image, class: 'media-object', alt: shopping_cart.product.title %>
+                <%= image_tag shopping_cart.product.product_image_attachment, class: 'media-object', alt: shopping_cart.product.title %>
               </a>
              
             </div>

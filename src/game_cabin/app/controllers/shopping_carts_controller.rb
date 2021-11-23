@@ -2,9 +2,9 @@ class ShoppingCartsController < ApplicationController
   before_action :find_shopping_cart, only: [:update, :destroy]
   def index
     get_categories_and_carts_num
-    # Inovke the scope method define in cart model to fetch all the carts that belongs to user has
+    # Inovke the scope method define in ShoppingCart model to fetch all the carts that belongs to user has
     @shopping_carts = ShoppingCart.by_user_uuid(session[:user_uuid])
-      .order("id desc").includes([:product => [:product_image]])
+      .order("id desc").includes(product: :product_image_attachment)
   end
 
   def create
