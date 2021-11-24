@@ -22,7 +22,7 @@ h1>Cart (<%= @shopping_carts.count %>)</h1>
                 <p><input type="text" name="amount" value="<%= shopping_cart.amount %>" /></p>
                 <p>
                   <%= submit_tag "renew", class: "btn btn-default btn-xs" %>
-                  <%= link_to "delete", shopping_cart_path(shopping_cart), method: :delete, 'data-confirm': "sure?", class: "btn btn-default btn-xs" %>
+                  <%= link_to "delete", shopping_cart_path(shopping_cart), method: :delete, 'data-confirm': "Are you sure?", class: "btn btn-default btn-xs" %>
                 </p>
               <% end %>
             </div>
@@ -30,7 +30,7 @@ h1>Cart (<%= @shopping_carts.count %>)</h1>
   
         <% end %>
       <% else %>
-        <h3>empty</h3>
+        <h3>The cart is empty now.</h3>
       <% end %>
     </div>
 

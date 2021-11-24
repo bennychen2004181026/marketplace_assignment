@@ -1,4 +1,5 @@
 class ShoppingCartsController < ApplicationController
+  # This method are apply to renew ande delete action for DRY.
   before_action :find_shopping_cart, only: [:update, :destroy]
   def index
     get_categories_and_carts_num
@@ -9,6 +10,7 @@ class ShoppingCartsController < ApplicationController
 
   def create
     # Try to fetch the amount attribute of cart, the amount represent how mang specific kind of item in a cart while one cart only contain one kind of item.
+    # Use to_i method to turn the attribute to a integer to ensure if the attribute become an integer.
     amount = params[:amount].to_i
     # Because user can choose clicking the homgpage  'add to cart' button or click into the detail page of item to add how many of this item to cart, 
     # so I need a logic to decide the the amount because the amount is setted to default 0 so the homepage click will add one item, and the negative
@@ -33,17 +35,21 @@ class ShoppingCartsController < ApplicationController
   end
 
   def update
+    # If the shopping cart exist
     if @shopping_cart
+    # Use to_i method to turn the attribute to a integer to ensure the attribute becoming an integer.
       amount = params[:amount].to_i
+    # Use ternary Operator to assign the amount
       amount = amount <= 0 ? 1 : amount
-
-      @shopping_cart.update :amount, amount
+    # Renew the amount base on the new amount
+      @shopping_cart.update(amount: amount)
     end
-
+    
     redirect_to shopping_carts_path
   end
 
   def destroy
+    # If exists then destroy
     @shopping_cart.destroy if @shopping_cart
 
     redirect_to shopping_carts_path
@@ -51,11 +57,11 @@ class ShoppingCartsController < ApplicationController
 
   private
   def find_shopping_cart
+    # by_user_uuid is shopping cart model scope method to help identify which shopping 
+    # carts' attached user_uuid is the same as current user's uuid and then among these carts 
+    # using second clause where with the cart's id which coming from url params to identify the newest one.
     @shopping_cart = ShoppingCart.by_user_uuid(session[:user_uuid])
       .where(id: params[:id]).first
   end
 
-  def strong_cart_params
-    params.require(:product_id).permit(:user_id, :user_uuid,:amount)
-  end
 end
