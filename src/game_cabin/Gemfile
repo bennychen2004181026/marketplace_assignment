@@ -85,5 +85,3 @@ gem 'image_processing', '~> 1.2'
 # Provide simple active_storage_validations
 gem 'active_storage_validations'
 
-# Front end styling
-gem 'font_awesome5_rails'

@@ -5,10 +5,9 @@ class CreateDeliveryDetails < ActiveRecord::Migration[6.0]
       t.string :address_type,null: false
       t.string :contact_name,null: false
       t.string :phone,null: false
-      t.references :address_id,null: false, foreign_key: true
+      t.references :address,null: false, foreign_key: true
       t.timestamps
     end
     add_index :delivery_details, [:user_id, :address_type]
-    add_index :delivery_details, [:address_id]
   end
 end

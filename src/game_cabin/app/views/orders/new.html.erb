@@ -1,0 +1,21 @@
+<h1>Order Comfirm</h1>
+<div class="row">
+  <div class="container">
+    <div class="page-header">
+      <h4><i class="fa fa-map-marker"></i> Delivery Address</h4>
+    </div>
+    <div id="address_list">
+
+    </div>
+  </div>
+</div>
+
+  <% # This ajax function is for fetching the details which contain the addresses from the routes and controller%>
+  <% # index action and pass it as the html format to the the div which class is address_list to display. %> 
+<%= content_for :javascripts do %>
+  <script>
+    $.get('/delivery_details', function(data) {
+      $('#address_list').html(data);
+    })
+  </script>
+<% end %>

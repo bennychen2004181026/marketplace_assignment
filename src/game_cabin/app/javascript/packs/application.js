@@ -8,7 +8,8 @@ require("@rails/activestorage").start()
 require("channels")
 
 import 'bootstrap-sass/assets/javascripts/bootstrap'
-import "bootstrap-sass/assets/stylesheets/_bootstrap";
+import "bootstrap-sass/assets/stylesheets/_bootstrap"
+import "@fortawesome/fontawesome-free/css/all"
 
 
 
