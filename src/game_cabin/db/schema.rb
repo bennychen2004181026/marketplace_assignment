@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_063339) do
     t.bigint "address_id", null: false
     t.bigint "product_id", null: false
     t.string "order_no", null: false
-    t.integer "total_amount", null: false
+    t.integer "amount", null: false
     t.decimal "total_payment", precision: 10, scale: 2, null: false
     t.datetime "payment_at", null: false
     t.datetime "created_at", precision: 6, null: false
