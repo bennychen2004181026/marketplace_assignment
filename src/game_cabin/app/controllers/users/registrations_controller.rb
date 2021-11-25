@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      
     if @user.save
       flash[:notice] = 'Successfully sign up!'
-      redirect_to root_path
+      redirect_to new_user_session_path
     else
       flash[:notice] = 'Something wrong!'
       render action: :new

@@ -9,11 +9,8 @@ class User < ApplicationRecord
 
   enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
-  # The AddressType module helper can identify which type of the address is, it can be residential or postage one.
-  # The scope can help identifing user's residential address.
-  has_many :delivery_details, -> { where(address_type: DeliveryDetail::AddressType::Residential).order("id desc") }
   
-  has_one :default_address, class_name: :DeliveryDetail,:foreign_key => 'default_address_id'
+  has_one :address , dependent: :destroy
   has_many :shopping_carts
 
   # When new user create, it's normal user account.

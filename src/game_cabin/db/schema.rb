@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_011050) do
+ActiveRecord::Schema.define(version: 2021_11_24_005342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,16 +37,16 @@ ActiveRecord::Schema.define(version: 2021_11_24_011050) do
   end
 
   create_table "addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "contact_name", null: false
+    t.string "phone", null: false
     t.string "street_address", null: false
     t.string "suburb", null: false
     t.string "state", null: false
     t.integer "postcode", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["postcode"], name: "index_addresses_on_postcode"
-    t.index ["state"], name: "index_addresses_on_state"
-    t.index ["street_address"], name: "index_addresses_on_street_address"
-    t.index ["suburb"], name: "index_addresses_on_suburb"
+    t.index ["user_id"], name: "index_addresses_on_user_id", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -58,18 +58,6 @@ ActiveRecord::Schema.define(version: 2021_11_24_011050) do
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["title"], name: "index_categories_on_title"
-  end
-
-  create_table "delivery_details", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "address_type", null: false
-    t.string "contact_name", null: false
-    t.string "phone", null: false
-    t.bigint "address_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_delivery_details_on_address_id"
-    t.index ["user_id", "address_type"], name: "index_delivery_details_on_user_id_and_address_type"
   end
 
   create_table "products", force: :cascade do |t|
@@ -115,14 +103,13 @@ ActiveRecord::Schema.define(version: 2021_11_24_011050) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "role", null: false
     t.string "uuid"
-    t.integer "default_address_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "delivery_details", "addresses"
+  add_foreign_key "addresses", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "shopping_carts", "products"
   add_foreign_key "shopping_carts", "users"

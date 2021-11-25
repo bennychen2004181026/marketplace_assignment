@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :shopping_carts
-  resources :delivery_details 
+  resources :addresses 
   resources :orders
   
   namespace :admin do

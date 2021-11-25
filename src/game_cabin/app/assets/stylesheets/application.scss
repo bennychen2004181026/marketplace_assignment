@@ -11,3 +11,61 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+@import "font-awesome";
+.list-group-item {
+    label {
+        font-weight: normal;
+    }
+    a {
+        display: block;
+        &.inline {
+            display: inline-block;
+        }
+    }
+}
+
+.thumbnail {
+    height: 290px;
+    &.detail {
+        height: auto;
+    }
+    a.title {
+        color: #333;
+    }
+}
+
+.media {
+    &.shopping-cart-row {
+        border-bottom: 1px solid #ccc;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}
+
+a.add-to-cart-btn {
+    i {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-form .form-control.search-input {
+        width: 400px
+    }
+}
+
+.form-body {
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+input[type="file"] {
+    &.image-input {
+        display: inline-block;
+        border: 1px solid #ccc;
+        padding: 5px 20px;
+        border-radius: 4px
+    }
+}

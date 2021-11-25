@@ -36,7 +36,7 @@ class Product < ApplicationRecord
     validates :description, presence: { message: "Should have description." }
     validates :description, length: { maximum: 1000,
       too_long: "%{count} characters is the maximum allowed" }
-  
+    # Status helper module is located at application record to provide two status attributes
     scope :available, -> { where(status: Status::Available) }
 
    
