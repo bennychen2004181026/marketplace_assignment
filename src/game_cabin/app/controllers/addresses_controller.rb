@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
-
+  # Devise's helper user authentication method
+  before_action :authenticate_user!
   # Helper method to fetch specific address object before the following actions
   before_action :find_address, only: [:index,:edit,:edit, :update, :destroy]
     

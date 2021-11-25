@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+     # Devise's helper user authentication method
+  before_action :authenticate_user!
    def new
     # Fetching the order related data
     get_categories_and_carts_num
