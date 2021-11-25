@@ -5,6 +5,7 @@
       <h4><i class="fa fa-map-marker"></i> Delivery Address</h4>
     </div>
     <div class="pull-right">
+
   <%= link_to "Build New Adress", new_address_path, class: "btn btn-info new-address-btn" %>
 </div>
 <div class="clearfix"></div>
@@ -30,6 +31,44 @@
     </li>
   <% end %>
 </ul>
+
+
+    <div class="page-header">
+      <h4><i class="fa fa-credit-card"></i> Payment Method</h4>
+    </div>
+    <ul class="list-group">
+     
+    </ul>
+
+    <div class="page-header">
+      <h4><i class="fa fa-list-alt"></i> Products Listing}</h4>
+    </div>
+    <% @shopping_carts.each do |shopping_cart| %>
+      <div class="media shopping-cart-row">
+        <div class="media-left">
+          <%= image_tag shopping_cart.product.product_image, class: 'media-object', alt: shopping_cart.product.title %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= shopping_cart.product.title %></h4>
+          Amount: <%= shopping_cart.amount %> Price: $<%= shopping_cart.amount * shopping_cart.product.price %>
+        </div>
+      </div>
+    <% end %>
+
+    <br />
+    <div class="pull-right">
+      <%= form_tag orders_path, method: :post do %>
+        <input type="hidden"/>
+        <strong>Total Price: $<%= @shopping_carts.sum { |cart| cart.amount * cart.product.price } %></strong>
+        <input type="submit" value="Order Comfirmed" class="btn btn-danger btn-lg" />
+      <% end %>
+    </div>
+
+    <div class="clearfix"></div>
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
 </div>
 

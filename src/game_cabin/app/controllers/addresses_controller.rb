@@ -4,7 +4,6 @@ class AddressesController < ApplicationController
   before_action :find_address, only: [:index,:edit,:edit, :update, :destroy]
     
   def index
-    render :layout => false
   end
 
   def new

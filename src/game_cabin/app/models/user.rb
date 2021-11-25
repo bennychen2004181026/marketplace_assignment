@@ -12,6 +12,8 @@ class User < ApplicationRecord
   
   has_one :address , dependent: :destroy
   has_many :shopping_carts
+  has_many :orders
+
 
   # When new user create, it's normal user account.
   # And it ensures all user records has an unique uuid

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_005342) do
+ActiveRecord::Schema.define(version: 2021_11_25_063339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,22 @@ ActiveRecord::Schema.define(version: 2021_11_24_005342) do
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["title"], name: "index_categories_on_title"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "address_id", null: false
+    t.bigint "product_id", null: false
+    t.string "order_no", null: false
+    t.integer "total_amount", null: false
+    t.decimal "total_payment", precision: 10, scale: 2, null: false
+    t.datetime "payment_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_orders_on_address_id", unique: true
+    t.index ["order_no"], name: "index_orders_on_order_no", unique: true
+    t.index ["product_id"], name: "index_orders_on_product_id", unique: true
+    t.index ["user_id"], name: "index_orders_on_user_id", unique: true
   end
 
   create_table "products", force: :cascade do |t|
@@ -110,6 +126,9 @@ ActiveRecord::Schema.define(version: 2021_11_24_005342) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
+  add_foreign_key "orders", "addresses"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "shopping_carts", "products"
   add_foreign_key "shopping_carts", "users"

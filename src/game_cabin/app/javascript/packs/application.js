@@ -9,7 +9,6 @@ require("channels")
 
 import 'bootstrap-sass/assets/javascripts/bootstrap'
 import "bootstrap-sass/assets/stylesheets/_bootstrap"
-import "@fortawesome/fontawesome-free/css/all"
 
 
 var jQuery = require('jquery')
@@ -20,7 +19,6 @@ global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
 
-require("stylesheets/application.scss")
 import "packs/main";
 
 // Uncomment to copy all static images under ../images to the output folder and reference

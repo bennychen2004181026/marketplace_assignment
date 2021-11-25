@@ -4,6 +4,7 @@ class ShoppingCart < ApplicationRecord
   validates :amount, presence: true
 
   belongs_to :product
+  belongs_to :order
 
 # For searching all the shopping carts that the user has.
 scope :by_user_uuid, -> (user_uuid) { where(user_uuid: user_uuid) }
