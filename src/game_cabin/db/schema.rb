@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_063339) do
+ActiveRecord::Schema.define(version: 2021_11_25_222939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,32 +63,33 @@ ActiveRecord::Schema.define(version: 2021_11_25_063339) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "address_id", null: false
-    t.bigint "product_id", null: false
-    t.string "order_no", null: false
     t.integer "amount", null: false
+    t.string "order_no", null: false
     t.decimal "total_payment", precision: 10, scale: 2, null: false
-    t.datetime "payment_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_orders_on_address_id", unique: true
-    t.index ["order_no"], name: "index_orders_on_order_no", unique: true
-    t.index ["product_id"], name: "index_orders_on_product_id", unique: true
-    t.index ["user_id"], name: "index_orders_on_user_id", unique: true
+    t.index ["address_id"], name: "index_orders_on_address_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.string "title", null: false
     t.string "status", default: "Not available"
-    t.integer "amount", default: 0
+    t.integer "amount", default: 0, null: false
     t.string "uuid", null: false
-    t.decimal "price", precision: 10, scale: 2
+    t.decimal "price", precision: 10, scale: 2, null: false
     t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["amount"], name: "index_products_on_amount"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["price"], name: "index_products_on_price"
     t.index ["status", "category_id"], name: "index_products_on_status_and_category_id"
+    t.index ["status"], name: "index_products_on_status"
     t.index ["title"], name: "index_products_on_title"
+    t.index ["user_id"], name: "index_products_on_user_id"
     t.index ["uuid"], name: "index_products_on_uuid", unique: true
   end
 
@@ -117,7 +118,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_063339) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "role", null: false
+    t.string "role", default: "user"
     t.string "uuid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -127,9 +128,9 @@ ActiveRecord::Schema.define(version: 2021_11_25_063339) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
   add_foreign_key "orders", "addresses"
-  add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
   add_foreign_key "shopping_carts", "products"
   add_foreign_key "shopping_carts", "users"
 end

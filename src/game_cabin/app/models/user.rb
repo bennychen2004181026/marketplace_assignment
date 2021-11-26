@@ -9,10 +9,12 @@ class User < ApplicationRecord
 
   enum role: [:user, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  after_initialize :set_user_uuid, :if => :new_record?
   
   has_one :address , dependent: :destroy
   has_many :shopping_carts
   has_many :orders
+  has_many :payments
 
 
   # When new user create, it's normal user account.
@@ -21,6 +23,9 @@ class User < ApplicationRecord
     self.role ||= :user
   end
   
+  def set_user_uuid
+   self.uuid ||= SecureRandom.base36(24)
+  end
 
   # helper for better name displaying
 

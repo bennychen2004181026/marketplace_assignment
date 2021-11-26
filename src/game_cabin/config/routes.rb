@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :sessions
   resources :shopping_carts
   resources :addresses 
-  resources :orders
+  resources :orders, only: [:new]
+  post '/checkout/create',to: 'checkout#create'
+ 
   
   namespace :admin do
     root 'sessions#new'
@@ -26,6 +28,11 @@ Rails.application.routes.draw do
   end
   
   resources :categories, only: [:show]
-  resources :products, only: [:show]
+  resources :products do
+    get :search, on: :collection
+  end
+  
 
+
+  
 end

@@ -5,9 +5,6 @@
       url: (@address.new_record? ? addresses_path : address_path(@address)), 
       method: (@address.new_record? ? :post : :put), 
       html: { class: 'form-horizontal' }  do |f|  %>
-      <%if !@address.errors.blank?%>
- <h2 >Postage Address</h2>
-<% end %>
             <% unless @address.errors.blank? %>
       <div class="alert alert-danger">
         <ul class="list-unstyled">
@@ -72,13 +69,10 @@
           <%= f.submit "Save", class: "btn btn-primary" %>
      </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-8">
-          <%= button_to "Back to Order", new_order_path, class: "btn btn-primary"%>
-     </div>
-    </div>
+   
       <% end %>
     </div>
   </div>
 </div>
 
+    

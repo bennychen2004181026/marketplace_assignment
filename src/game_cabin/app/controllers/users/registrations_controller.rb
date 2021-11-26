@@ -16,8 +16,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user = User.new(params.require(:user)
        .permit(:email, :password, :password_confirmation))
-     @user.uuid = session[:user_uuid]
-     
+       # Assign user's uuid into session to make it easy for people add product to shopping before login.
+       update_session_uuid @user.uuid
+
+
     if @user.save
       flash[:notice] = 'Successfully sign up!'
       redirect_to new_user_session_path

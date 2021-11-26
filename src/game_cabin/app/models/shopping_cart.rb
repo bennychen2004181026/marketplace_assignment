@@ -6,6 +6,7 @@ class ShoppingCart < ApplicationRecord
   belongs_to :product
   belongs_to :order
 
+
 # For searching all the shopping carts that the user has.
 scope :by_user_uuid, -> (user_uuid) { where(user_uuid: user_uuid) }
 
@@ -27,7 +28,7 @@ def self.create_or_update options = {}
     record.update(options.merge(amount: record.amount + options[:amount]))
   else
     # If can't find a match one, then create a new one with the attributes hash and save!.
-    record = create(options)
+    record = create!(options)
   end
   # Return the new record
  record

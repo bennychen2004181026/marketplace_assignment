@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
   # Devise's helper user authentication method
   before_action :authenticate_user!
+  protect_from_forgery :except => :create 
   # Helper method to fetch specific address object before the following actions
   before_action :find_address, only: [:index,:edit,:edit, :update, :destroy]
     
@@ -49,7 +50,7 @@ class AddressesController < ApplicationController
    else
     flash[:alert] = "Fail to delete."
 
-      redirect_to :back
+    redirect_back fallback_location: new_order_path
    end
   end
 

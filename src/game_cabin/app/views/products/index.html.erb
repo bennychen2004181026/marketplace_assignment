@@ -1,6 +1,6 @@
 <div>
   <div class="pull-right">
-    <%= link_to "New product", new_admin_product_path, class: "btn btn-primary" %>
+    <%= link_to "New product", new_product_path, class: "btn btn-primary" %>
   </div>
 
   <h1>
@@ -24,7 +24,8 @@
 
     <% @products.each do |product| %>
       <tr>
-
+        
+         
  <% if product.product_image.representable? %>
         <td><%= image_tag product.product_image.representation(resize_to_limit: [160, 160]).processed.service_url %></td>
       <% else %>
@@ -38,11 +39,11 @@
         <td><%= product.amount %></td>
         <td><%= product.status %></td>
         <td align="right">
-          <%= link_to "Edit", edit_admin_product_path(product) %> 
-          <%= link_to "Delete", admin_product_path(product), method: :delete, 'data-confirm': "Are you sure?" %>
+          <%= link_to "Edit", edit_product_path(product) %> 
+          <%= link_to "Delete", product_path(product), method: :delete, 'data-confirm': "Are you sure?" %>
         </td>
       </tr>
-    <% end %>
+    <% end -%>
   </table>
 
   <%= will_paginate @products %>
