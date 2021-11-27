@@ -51,9 +51,9 @@ class ApplicationController < ActionController::Base
     # Private methods can only be used within the class definition.The only way to have external access to a private 
     # method is to call it within a public method. 
     private
-  
+    # Pundit custom error messages
     def user_not_authorized
-      flash[:alert] = "Sorry, Access denied."
+      flash[:alert] = "Sorry, Access denied. You are not the owner of the item or you are not admin!"
       redirect_to (request.referrer || root_path)
     end
 end

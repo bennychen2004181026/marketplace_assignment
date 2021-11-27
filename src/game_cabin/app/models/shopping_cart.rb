@@ -1,10 +1,14 @@
 class ShoppingCart < ApplicationRecord
+   # Validation of user_uuid attribute
   validates :user_uuid, presence: true
+
+   # Validation of product_id attribute
   validates :product_id, presence: true
-  validates :amount, presence: true
+   # Validation of amount attribute
+   validates :amount, numericality: { only_integer: true}
 
   belongs_to :product
-  belongs_to :order
+
 
 
 # For searching all the shopping carts that the user has.
@@ -12,7 +16,7 @@ scope :by_user_uuid, -> (user_uuid) { where(user_uuid: user_uuid) }
 
 # Thi method is defined for cart controller. '**'represent the argument is a hash.
 # Cart attributes has uuid, product id and amount of this item.
-def self.create_or_update options = {}
+def self.create_or_update! options = {}
   # To identify which cart I want to update or creat, I need to fetch the current user uuid and product.
   cond = {
     user_uuid: options[:user_uuid],
@@ -25,7 +29,7 @@ def self.create_or_update options = {}
   if record
     # Updating the record amount attribute by using hash merge and update! method to save in database.
     # The exclamation point means when somthing wrong happen, an exception will be arised.
-    record.update(options.merge(amount: record.amount + options[:amount]))
+    record.update!(options.merge(amount: record.amount + options[:amount]))
   else
     # If can't find a match one, then create a new one with the attributes hash and save!.
     record = create!(options)
