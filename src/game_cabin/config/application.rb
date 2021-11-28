@@ -10,13 +10,14 @@ module GameCabin
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.assets.initialize_on_precompile = false
     config.enable_dependency_loading = true
-
+    config.serve_static_assets = true
     config.autoload_paths += %W[#{Rails.root}/lib]
     config.autoload_paths += Dir[
       Rails.root.join('app', 'policies', '*.rb'),
       Rails.root.join('app', 'lib', '*.rb')
-  ]
+  ]  
     
    
     # Settings in config/environments/* take precedence over those specified here.
