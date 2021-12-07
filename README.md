@@ -1,6 +1,6 @@
 # Game Cabin
 
-
+The master key is in docs folder
 Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://coderacademy.edu.au/) 2021 Fast track Bootcamp.
 
 ## Table of Contents
