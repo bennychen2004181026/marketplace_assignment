@@ -7,7 +7,7 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 - [Game Cabin](#game-cabin)
   - [Table of Contents](#table-of-contents)
   - [Local environment for testing](#local-environment-for-testing)
-  - [Problem Statement](#problem-statement)
+  - [Identify The Problem](#identify-the-problem)
   - [Important Links](#important-links)
   - [Description](#description)
     - [Purpose](#purpose)
@@ -33,7 +33,6 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 
 * clone repository with `git clone git@github.com:bennychen2004181026/marketplace_assignment.git`
 * navigate into app folder with `cd src/game_cabin`
-* update config/database.yml with your postgresql username and password.
 * update config/credentials.yml with your variable AWS S3
 * run `bundle install`
 * run `sudo service postgresql start` or `sudo systemctl start postgresql`depending on the system
@@ -44,9 +43,10 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 * Game Cabin already been initialized with three default admin role account: "super@test.com", "test@test.com" and "test1@test.com". And their password are the same: "11111111". Please login the admin account to setup the product's categories and sub categories to be displayed in the homepage layout first.
 
 </details>
-## Problem Statement
 
-* Identification of the problem you are trying to solve by building this particular marketplace app.
+## Identify The Problem 
+
+* Identification of the problem which I am trying to solve by building this particular marketplace app.
 
 During the COVID-19 pandemic outbreak in Australia, Australian government closed the national border and people underwent strict lock down which eventually lasted several months. This intense lock-downs obviously facilitates the gaming spending when people has to stay at home for a long time. According to a analysis report , the gaming market potential is growing really fast as be anticipated to "surpass $5 billion by 2025".
 
