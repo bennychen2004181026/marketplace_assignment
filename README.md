@@ -1,13 +1,16 @@
 # Game Cabin
 
+#### Author: Ben Chen
 The master key is in docs folder
 Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://coderacademy.edu.au/) 2021 Fast track Bootcamp.
 
 ## Table of Contents
 - [Game Cabin](#game-cabin)
+      - [Author: Ben Chen](#author-ben-chen)
   - [Table of Contents](#table-of-contents)
   - [Local environment for testing](#local-environment-for-testing)
   - [Identify The Problem](#identify-the-problem)
+      - [Background and Problem Identification](#background-and-problem-identification)
   - [Important Links](#important-links)
   - [Description](#description)
     - [Purpose](#purpose)
@@ -40,27 +43,31 @@ Completed as Term 2 Ruby on Rails assessment at [Coder Academy's](https://codera
 * run `rails db:migrate`
 * run `rails s`
 * In a browser with typing `localhost:3000` to see the project.
-* Game Cabin already been initialized with three default admin role account: "super@test.com", "test@test.com" and "test1@test.com". And their password are the same: "11111111". Please login the admin account to setup the product's categories and sub categories to be displayed in the homepage layout first.
+* Game Cabin comes with three pre-initialized admin accounts: "super@test.com", "test@test.com", and "test1@test.com". The password for each is "11111111". Please log in with an admin account to set up product categories and subcategories for display on the homepage.
 
 </details>
 
 ## Identify The Problem 
 
-* Identification of the problem which I am trying to solve by building this particular marketplace app.
+#### Background and Problem Identification
 
-During the COVID-19 pandemic outbreak in Australia, Australian government closed the national border and people underwent strict lock down which eventually lasted several months. This intense lock-downs obviously facilitates the gaming spending when people has to stay at home for a long time. According to a analysis report , the gaming market potential is growing really fast as be anticipated to "surpass $5 billion by 2025".
+* Identification of the Problem Solved by this Marketplace App
 
-As people purchased more and more game and relevant consoles for entertainment, a problem would eventually emerges. If they fed up with game content or they want a new gaming consoles, it not a smart way to leave the game case and consoles stacking at home with dust. On the other hand,  some game player want to buy some bargain game or consoles because the budget is limited.
+During the COVID-19 pandemic, Australia experienced stringent lockdowns and border closures. This period saw a significant rise in gaming expenditure as individuals sought entertainment during extended home stays. Market analysis predicts the gaming industry in Australia to exceed $5 billion by 2025. This surge in gaming has led to an accumulation of games and consoles in homes, often going unused or becoming obsolete.
 
-* Why is it a problem that needs solving?
+This scenario poses a unique challenge. On one hand, gamers continuously seek new experiences, leading to an excess of unused gaming items. On the other, budget-conscious gamers are in constant search of affordable options. This disparity in needs creates a market inefficiency that requires a solution.
 
-At this moment. A two sided marketplace app is excellent solution to meet both group’s need. As the gaming market grows, the player spend more money on game and consoles and it’s not financial sustainable to continue this behavior. Yet they would be wise enough to sell their own game or consoles if they don;t need them anymore. In contrast, the player whom like to spend less for more are looking for a place to buy some bargain. That’s what my  two sided marketplace app can offer. My app can provide a platform for the player to buy and sell pre-own game and consoles. Player can trade in lower price gaming items from other player. If player fed up with the items they bought from my app,they can sell the items in the app as well as a seller. So on and on, players can extract the value from the game and consoles to enjoy more gaming experience and make it cost-effective.
+* Why This Problem Needs a Solution
+
+Enter the concept of a two-sided marketplace app, a perfect solution to bridge this gap. As the gaming market expands, consumer spending patterns evolve. Financial sustainability becomes a concern for gamers frequently investing in new games and consoles. A platform enabling them to sell items they no longer need addresses this issue. Simultaneously, it caters to those seeking more affordable gaming options.
+
+Our app offers a dynamic platform where users can buy and sell pre-owned games and consoles, fostering a cycle of cost-effective gaming. It not only provides a solution for gamers to monetize their unused items but also enables others to access gaming experiences at lower costs. This continuous exchange maximizes the value derived from each gaming product, creating a more sustainable and enjoyable gaming ecosystem.
 
 ## Important Links
 
 [Link to Github Repo](https://github.com/bennychen2004181026/marketplace_assignment)
 
-[Link to deployed website](https://protected-plateau-22141.herokuapp.com/)
+[Link to deployed website](https://game-cabin-0f88fecc7027.herokuapp.com/)
 
  [Back to Table of Contents](#table-of-contents)
 
@@ -68,28 +75,39 @@ At this moment. A two sided marketplace app is excellent solution to meet both g
     
 ### Purpose
 
-The purpose of this app is to provide a two sided online marketplace platform for bargain preowned game and console selling and trading.
+Game Cabin is an innovative online marketplace designed to facilitate the buying, selling, and trading of preowned games and consoles. Our platform caters to gaming enthusiasts looking for great deals and a community-driven trading experience.
 
 ### Functionality and Features
-  The following functionalities are provided in my app.
+
+Game Cabin offers a suite of user-friendly features to enhance the buying and selling experience:
+
 1. **User management**
 
-    Basic user management is provided fro viewer to access to pages which require specific authorization. Any viewer whom doesn't login can view and search all the product, and even can add products to shopping cart. But selling product feature and processing to check out feature require viewer login as a user to continue.
-    User can change password or log out when needed.
-   
-2. **Selling management**
-   
-    User can selling their own product in the selling product page. By providing the necessary details of the gaming item and send them to server and anyone else can see and search the items you sold. It requires user to provide items's image, the name, available status, amount, price and description. And in the selling page, user can edit or delete the items of their own while another simple user can not access to manipulate your items.
+* Access Control: Basic user management allows visitors to browse products and use the shopping cart without logging in. Features like product selling and checkout require user authentication for enhanced security.
 
-3. **Buying**
+* User Profile Management: Users can easily update their passwords or log out, maintaining control over their personal and security details.
    
-   The most important part of a marketing app is buying items. Users and even viewers can view and selecting items to shopping cart. Click the item picture can navigate to item detail page. Users and views can see the detail of each item and decide how many to order and even change the amount of whatever has been ordered. The shopping cart button leads to the page which displaying all the ordered items information and they can process to check out page from here. In the checkout page all the order information is displayed and a delivery address is required for delivery purpose. Unfortunately, I don't have enough time to implement the payment process.
+1. **Selling management**
+   
+* Product Listing: Users can list their gaming items by providing essential details like images, names, availability status, quantity, price, and descriptions. This information is then visible to all users for browsing and purchasing.
 
-4. **Searching**
-   On my homepage, the left side is category classification. Everyone can click on the category that they want to explore and see the result immediately. The function is important for user to locate the kind of product they want and save time for user to find specific items among a lot of items. And the navigation bar on top can also provide searching function base on the name and category.
+* Item Control: Sellers have the ability to edit or delete their listings, ensuring they have full control over their product presentation and availability.
 
-5. **Admin Management** 
-   I also perform a admin interface for admin user to create, edit and delete the categories and products. Admin user has full access and manipulation to all products and categories.
+1. **Buying**
+   
+* Product Selection: Both registered users and guests can add items to their shopping cart. A detailed view of each product is available to help make informed purchasing decisions.
+
+* Checkout Process: The shopping cart leads to a checkout page displaying order summaries and requiring a delivery address. Note: Payment processing is planned for future implementation.
+
+1. **Searching**
+
+* Category-Based Browsing: The homepage features a categorized view, allowing users to quickly navigate and filter products based on specific game types or console categories.
+
+* Search Functionality: An intuitive search bar allows users to find products based on names or categories, streamlining the product discovery process.
+
+1. **Admin Management** 
+
+* Comprehensive Control: An admin interface is available for administrative users to create, edit, and delete product categories and listings, providing full oversight of the marketplace's content.
 
 - ### Sitemap
 
@@ -120,7 +138,7 @@ The purpose of this app is to provide a two sided online marketplace platform fo
 
 ### Target Audience
 
-As the gaming market grows, more and more game player spend more money on game and consoles. Most players want to have excellent gaming experience with less spending, and some player want to sell their gaming item for money or they just need to focus on other business. And some player want to make more room at home because too much gaming items stacking at home. 
+As the gaming industry continues to expand, an increasing number of players are investing in games and consoles. Many seek to enhance their gaming experience without overspending, while others look to sell their gaming items for financial reasons or to shift their focus to different pursuits. Additionally, there's a growing trend among gamers to declutter their space, parting with excess gaming items that accumulate over time.
 
   ---
 
@@ -175,17 +193,34 @@ As the gaming market grows, more and more game player spend more money on game a
 
 ## User Stories
 
-*  As a User, I need to be able to have my own account and can login, sign out and change password if I need.
-*  As a User, I want to be able to search specific items that I am interested at.
-*  As a User, I want to find the specific category of items that I might like in a short time.
-*  As a User, I want to view the detail information of specific item.
-*  As a User, I want to be able to add some items to shopping cart, even I am not log in yet.
-*  As a User, I want to change the amount of items which I had put in my shopping cart.
-*  As a User, I want to be able to delete the items I don't want to order anymore.
-*  As a User, I want to see how much of the items I had order including total anticipated sending.
-*  As a Seller, I want an sell my owned gaming items and can edit and deleted my stuffs.
-*  As a Buyer, I want to provide an address for delivery purpose.
-*  As a Admin user, I want full access to all the categories and items with manipulation.
+1. Account Management
+
+* As a User, I need to create and manage my account, including the ability to log in, sign out, and change my password when necessary.
+
+2. Search and Discovery
+
+* As a User, I want to efficiently search for specific items of interest.
+* As a User, I aim to quickly find items within specific categories that align with my preferences.* 
+
+3. Product Details and Cart Management
+
+* As a User, I want to access detailed information about each item.
+* As a User, I need the ability to add items to my shopping cart without logging in.
+* As a User, I want to adjust the quantity of items in my shopping cart.
+* As a User, I wish to remove items from my shopping cart that I no longer intend to purchase.
+  
+4. Order Review and Checkout
+
+* As a User, I want to view a summary of my order, including the total cost and anticipated shipping.
+5. Seller Functionality
+
+* As a Seller, I want to list my gaming items for sale and have the capability to edit or delete my listings as needed.
+6. Buyer's Convenience
+
+* As a Buyer, I want to provide a delivery address for shipping purposes.
+7. Admin Privileges
+
+* As an Admin User, I require full access to all categories and items, including the ability to create, edit, and delete them.
 
 ## Wireframes
 
@@ -208,40 +243,42 @@ As the gaming market grows, more and more game player spend more money on game a
 
 ## Components
 
-My game Cabin App is builded by using Ruby on Rails framework which address MVC design pattern.
+My Game Cabin App is developed using the Ruby on Rails framework, adhering to the MVC (Model-View-Controller) design pattern.
 
-As in a MVC design app, there are three most important high level components which are model, view and controller. 
+In an MVC-designed application, three key components are pivotal: the model, view, and controller.
 
-
-The model represents the core date that my application is being used to access and manipulate. I view model as the heart of my app. The view and controller components assist user to interact with data entities model.
+* Model: This is the core component of the application, representing the data my app accesses and manipulates. I consider the model as the heart of Game Cabin, central to its functionality.
+* View and Controller: These components facilitate user interaction with the data entities defined in the model. The view presents data to the user, while the controller handles user input and updates the model accordingly.
+  
+This structured approach in Game Cabin ensures a clean separation of concerns, enhancing maintainability and scalability of the application.
 
 ### User
 <details>
     <summary>Click here to expand</summary>
 
 ![user](./docs/screenshots/../user/user.png)
-From the above user part database schema, there are so many attributes that are from Devise gem which help developer to manager functions and features on user model. From the names of the attributes we can guess what are the purposes with them, such an encrypted password is responsible for keep the password safe in database with encryption and all the different timestamp for different purpose, but that's not our concern because Devise help us manager this stuff including user controller and view part. The index below of email and reset_password_token means Devise need access to email to identify who is the user and reset_password_token to manager user password reset function. 
+In our database schema for the user component, numerous attributes stem from the Devise gem, which simplifies managing various user-related functions. Attributes like 'encrypted_password' ensure secure password storage through encryption, while different timestamps cater to varied purposes. However, Devise efficiently handles these elements, including aspects related to user controllers and views. Key indices, such as 'email' and 'reset_password_token', are essential for user identification and managing password resets, respectively, facilitated by Devise.
 
-As a user, all I need to provide are email, password and password confirmation in the user sign in page. Devise will validate and sanitize the input for us.  As a developer, I just install the Devise and view and set the routing in routes.rb file to 'Devise for: users'. And I want to design a admin user which can have high authorization on manipulating other important data.
+From a user perspective, the sign-in process is straightforward, requiring just an email, password, and password confirmation. Devise takes care of validating and sanitizing these inputs. As a developer, my role was to integrate Devise and configure the routing in the routes.rb file with the directive 'Devise for: users'. Additionally, I wanted to incorporate an admin role with extensive privileges for manipulating critical data.
 
-So I tried to add a 'role' attribute to divide the user into two different authorization group. Normal user role can sell and edit their own product as a seller. While admin can edit and change the whole categories and products data in a admin dashboard.
+To achieve this, I introduced a 'role' attribute to differentiate between two levels of user authorization. Regular users can sell and edit their products, while admins have the authority to modify categories and product data via an admin dashboard.
 
-And I attached a user uuid as a unique identifier to user model. May be someone would ask why to do that because user model like all the other model, has a id already to identify itself. My answer is that because I want to implement a function of even user is not log in they can still click the add to shopping cart. At this moment the user record hadn't created so there is none user id to attach on the items that been order. So how to track down the items?
-![initial uuid](./docs/screenshots/user_init.png)
- I will initial a virtual user uuid by using before_action helper when viewer click the add to shopping cart button and store it in the browser cookies and session while cookies and session is a transient information storage for user. And this user uuid will attach to the shopping carts. 
+A unique feature in our user model is the 'user uuid' attribute. While each user model, like any other model, has an ID, the 'user uuid' serves a specific purpose: it enables non-logged-in users to add items to their shopping cart. This is particularly challenging since a user record isn't created until the user signs up or logs in, leaving no user ID to associate with the cart items. The solution was to track these items using the 'user uuid'.
 
-If this viewer log in as a user, that means this viewer already has account in my app, then I can assign the real user uuid to the shopping cart that still exist in the browser and update the uuid in the session and cookies. If the user sign up as a new user, then I can assign the uuid which is stored in session to new user's uuid attribute. 
+![initial uuid](./docs/screenshots/../user/user_init.png)
+To enhance the shopping experience, I implemented a unique approach for handling shopping cart interactions. Initially, when a viewer clicks the 'add to shopping cart' button, a virtual 'user uuid' is generated using a before_action helper. This uuid is temporarily stored in the browser's cookies and session, as they offer transient storage for user information. Subsequently, this uuid is associated with the items in the shopping cart.
+
+The process evolves when a viewer logs in or signs up:
+
+* For Existing Users: If the viewer logs in and already has an account, the real 'user uuid' from their account is assigned to the shopping cart, replacing the virtual one. This update also reflects in the session and cookies.
+* For New Users: If the viewer signs up, the uuid stored in the session is transferred to the new user's 'uuid' attribute.
+
 ![custom_user_create_action](./docs/screenshots/../user/custom1.png)
-![new_user](./docs/screenshots/user/../../user/new_user.png)With this logic, I can perform this function and make the user uuid in async.
-
-Good news is I successfully implement the uuid function, but bad new is the 'role' attribute is not working as I expect, which lead to that I can design admin user to access to admin dashboard. The whole thing is when I change the role attribute to 'admin'and  save it, there is none exception or error message show up and updated successfully like message instead. 
-![weird](./docs/user/Screenshot%202021-11-27%20161305.png)
-And then the weird thing happen, I find that the role attribute became nil without any manual manipulation and error message. 
+![new_user](./docs/screenshots/user/../../user/new_user.png)With This method allows us to maintain the continuity of the shopping experience, whether the user is logged in or not, and manage the cart items asynchronously.
 
 
-It doesn't make sense and it trapped me for day. Search google and experiment with database for many time, and still don't find any clue. Consult with my educator with screen sharing and stay unsolved. It drive me crazy because time is ticking and only a couple of days left for the assignment due day. Finally I wasted too much time on this and unwillingly give up the planned payment feature and make the admin dashboard to be accessible to every user. After all, I have finished the admin dashboard first. 
 ![user_model](./docs/user/userModel.png)
-From the above user model, we can see user has one address for postage purpose, when this user is deleted,then the address which belong to user will be deleted as well. User can has many shopping carts, orders and products, or don't has any of them as well as long as user doesn't click add item to shopping cart button, then user has nothing at that moment.
+Our user model is robust and flexible. Each user is associated with a single address for delivery purposes. If a user account is deleted, the corresponding address is also removed. Users can possess multiple shopping carts, orders, and products, depending on their interaction with the 'add to shopping cart' feature. Conversely, if a user does not engage with this feature, they will not have any associated carts or orders at that moment.
  </details>  
   
   ---
@@ -250,34 +287,112 @@ From the above user model, we can see user has one address for postage purpose, 
     <summary>Click here to expand</summary>
 
 ![category schema](./docs/category/schema.png)
-Because in my design, product is an very important model in a marketplace app, and product belongs to category. And I have to introduce category part first.
+In my marketplace app design, the 'product' model is fundamental, and each product is associated with a category. To understand this relationship, it's essential to first delve into the category component.
 
-From the above category schema, we can see category has attributes such as title as the name of category, weight as the factor to decide the displaying sequence according to the searching result or normal listing, and a ancestry attribute which comes from ancestry gem to track record in a node tree structure. With the help from ancestry gem and index of ancestry above, I can easily access and manager main categories node and sub categories node since they are parent and child like relationship between them. Index title can let the title be accessible when user need to search categories' name.
+The category schema includes several key attributes:
+
+* Title: This serves as the category's name.
+* Weight: This attribute determines the order of display in search results or standard listings.
+* Ancestry: Leveraging the Ancestry gem, this attribute helps in creating a node tree structure. It enables efficient management of main and sub-categories, which have a parent-child relationship.
+
+With the Ancestry gem and an index on the ancestry field, navigating and managing these category hierarchies becomes straightforward. The title index enhances the accessibility and searchability of category names by users.
 
 ![category route](./docs/category/routes.png)
-From category routes we can see when type the category endpoint with category id will past the id as param to the show action in the categories controller and the action will perform something base on the param and send back some records to the same action name html file in the categories folder under view folder by default. Optionally you can choose to send other format of respond such JavaScript file or json object, but in most scenario in my project, html is the default respond format that I need.
+The category routes illustrate the app's behavior when a user accesses a specific category. Typing the category endpoint with an ID as a parameter triggers the 'show' action in the categories controller. This action processes the parameter and returns relevant records to the corresponding HTML file within the categories folder of the view directory. While alternative response formats like JavaScript files or JSON objects are possible, HTML remains the primary response format in most scenarios of my project.
+
 ![category controller](./docs/category/controlle.png)
-In the category controller, I only have a show action, after all category shouldn't be created or deleted by normal user. In this action, the param id will be past to the database query 'find', and according the 'Category'table records, the command will search and return the result and assign it to instance  variable '@category'. The 'get_categories_and_carts_num' method which I defined in upper application controller is for fetching whole categories records that the show html file needed. The product instance variable can be accessible due to the belong to relationship in product model.
+In the category controller of my application, the primary action is 'show'. This design choice reflects the decision that categories should not be created or deleted by normal users, aligning with the typical user permissions in a marketplace app.
+
+The 'show' action works as follows:
+
+* Parameter Processing: It receives a category ID as a parameter, which is then passed to the 'find' query in the database. This query searches the 'Category' table, locates the matching record, and assigns it to the '@category' instance variable.
+
+* Data Fetching: Additionally, the method 'get_categories_and_carts_num'—defined in the application controller—is invoked to fetch all category records necessary for the 'show' HTML file.
+
 ![category view](./docs/category/category_view.png)
-In the show view, the html page receives the @category instance and their title attribute can be accessed and display. 'parent' is a helper from ancestry gem which can help to access the parent node of current node. Because category is the top node in the data tree, 'parent'method apply to category will throw an exception. Only past sub category id and all the product records that belongs this sub category will be displayed in this show page.
+
+In the 'show' view, the HTML page utilizes the '@category' instance. The title attribute of the category is accessed and displayed. Thanks to the Ancestry gem, the 'parent' helper method enables access to the parent node of the current node. However, as the top node in the data tree, applying the 'parent' method to the main category would result in an exception. Therefore, it's only when a sub-category ID is provided that all product records belonging to this sub-category are displayed on the 'show' page.
 
 ![category model](./docs/category/category%20model.png)
-Consider I have to build up some real categories record in admin-dashboard, I need to validates all the input params that category only accepts. In the category model, it validates the title as string that needs to meet the presence, uniqueness and length requirements and relevant warning message to inform user what's wrong with the inputs and tell them what kind of standard of input is accepted. The weight as is displaying sequence impact factor which needs to be an integer within [1,100]. To apply the weight sequence on product, I need to define a method to fetch the tree nodes with the help of ancestry gem method 'roots' and 'children' and sort them base on weight as following.
+
+In developing the admin dashboard for category management, I implemented validation protocols in the category model to ensure the integrity and consistency of input data. This process involves several key validations:
+
+* Title Validation:
+
+The title of each category is validated as a string, adhering to specific criteria including presence, uniqueness, and length.
+Relevant warning messages are generated to inform users of input errors and guide them towards the acceptable standards for inputs.
+
+* Weight Validation:
+
+The 'weight' attribute, which influences the display order of categories, is validated to be an integer within the range of [1,100].
+
+This attribute plays a critical role in determining the sequence in which categories (and their associated products) are displayed.
+To effectively apply this weight-based sequencing, I created a method leveraging the Ancestry gem's 'roots' and 'children' methods to fetch and sort category nodes based on their weight.
+
 ![category model2](./docs/category/category%20model%202.png)
-Arrange all the category dates in an array, while the self.roots returns an array of first class categories and the array inject method will produces accumulating function base on the categories array. The empty array argument is the initial value which the 'result' represents, While the 'parent' presents every element in self.roots array which is first class category.
 
-In the inject block, I declare a empty array to contain all the categories and then add all the sub categories array inside the array and after combine the initial empty row array it finally returns an array contains specific first class category in index 0 and corresponding sub categories array as the second element in index 2. And the this array goes in the initial result empty array box, and accumulate other array of category and its own sub categories. The result will look like this: [[C1,[c11,c12,c13...]],[C2,[c21,c22,c23...]],[C3,[c31,c32,c33...]]...] And the, I can invoke this handy method in what ever controllers action to get the main and sub categories record and loop through the result and send the result back to view.
+In this approach, I arrange all category data into an array. The self.roots method retrieves an array of top-level categories. Using the inject method on this array, an accumulating function is produced based on the categories array. The initial empty array serves as the 'result', representing the aggregated data, while 'parent' refers to each element in the self.roots array, corresponding to a top-level category.
 
-While I need to create some categories records in admin dashboard, this category model is shared and extra actions and views are needed.
+In the inject block within my category model, a structured approach is adopted to organize category data:
+
+* Initialization and Accumulation:
+
+An empty array is initialized to hold category data.
+This array is then populated with sub-category arrays corresponding to each primary category.
+
+The array gradually accumulates data, resulting in an array where the first element (index 0) contains a top-level category and the second element (index 1) contains an array of its sub-categories.
+The final structure resembles: [[C1, [c11, c12, c13...]], [C2, [c21, c22, c23...]], [C3, [c31, c32, c33...]], ...]
+
+* Method Utilization:
+
+This method can be invoked in any controller action to retrieve both main and sub-category records.
+
+The results are then looped through and sent back to the view, facilitating a dynamic and organized display of categories.
+When it comes to creating category records in the admin dashboard, this same category model is utilized, necessitating additional actions and views.
+
 ![admin routes](./docs/admin/admin%20routes.png)
-From above admin routing, we can see when user type different endpoint behind `http://localhost:3000/` with with get or put or delete requests, they will be redirected to the specific action within the relevant controller. For example when user type `http://localhost:3000/admin/categories` in the browser, the index action in categories controller under admin namespace will be invoked.
+The admin routing system is structured as follows:
+
+1. Endpoint Handling:
+* Different endpoints appended to http://localhost:3000/ are directed to specific actions within the relevant controller, based on the type of request (GET, PUT, DELETE).
+
+* For instance, accessing http://localhost:3000/admin/categories in a browser triggers the index action in the categories controller under the admin namespace.
+
+This setup ensures that administrative tasks, such as category management, are handled efficiently and securely, distinct from the user-facing components of the app.
+
 ![admin categories controller](./docs/admin/categories%20controller.png)
-In the index action, if none of params input is attached, then it will consider user want to fetch all the categories record with the `.root` helper from ancestry. The root method will get all the button nodes' data in a tree data structure. In my app case, I use has categories and subcategories so all the sub ones will be gathered. If param integer is send in than, the method will query database with this integer id within Category table. And a specific main category record will be assigned to @category instance variable. At this moment, the data in @category is only about a main category and we need to invoke the `.children` helper from ancestry to fetch the sub category records under this main category and assign it back to @category again. Now I have the all sub categories data under specific category and with the `page` helper from a pagination gem `will_paginate`, the @category data will be send to `views/admin/categories/index.html.erb` file and being rendered in html syntax.
+In the index action of my application, the handling of category records is dependent on the user's input:
+
+1. Fetching All Categories:
+
+* If no specific parameters are provided, the action assumes that the user intends to retrieve all category records.
+* Utilizing the .root method from the Ancestry gem, the action fetches data for all bottom node categories in a tree-like structure. In the context of my app, this includes both main categories and their respective subcategories.
+
+2. Fetching a Specific Main Category:
+
+* When an integer parameter (representing a category ID) is provided, the action queries the database for a record with this ID in the Category table.
+* The resulting main category record is then assigned to the @category instance variable.
+* To obtain the related subcategories, the .children method from Ancestry is invoked on this main category, enriching the @category data with its subcategories.
+
+3. Rendering the Data:
+
+* With the complete set of subcategory data under a specific main category, I employ the page helper from the pagination gem will_paginate.
+* This paginated @category data is then sent to the views/admin/categories/index.html.erb file.
+* The data is rendered in HTML, presenting a structured view of the categories and subcategories in the admin dashboard.
+
 ![admin categories view](./docs/admin/admin%20categories%20view.png)
 And the actual view will look like this:
-![admin categories view](./docs/admin/admin%20categories%20view%201.png)You can see the end point in the url is just categories and without any params and as I mentioned above this page receives only main categories data. Then look at the content, `Console` and `Game` are exactly the categories. And then when I type with `/categories?id=2`, the page turns out like this:![admin categories view](./docs/admin/admin%20categories%20view%202.png)The question marks with subsequent `id=2 means I want to query all the records under id 2 category which is game. And yet check the content in the middle of the page and yes, that's what I need.
+![admin categories view](./docs/admin/admin%20categories%20view%201.png)
 
-Just like all the other action in on matter categories or products controller, when user want to communicate with database in rails, they need to send different endpoint within url, and the routes file will identify if the url endpoint exists , if exists, then route will be directed to the matching action in relevant controller.
+In my application's URL structure, the endpoint simplicity plays a crucial role in data retrieval. For example, when the URL endpoint is just 'categories' without any additional parameters, the page is designed to display only main category data. This can be observed in instances where `Console` and `Game` appear as the categories on the page, representing the main categories in the system.
+
+An example of a more specific query is when I append an ID parameter to the URL, like `/categories?id=2`. This directs the page to display data related to a specific category.
+
+![admin categories view](./docs/admin/admin%20categories%20view%202.png)
+
+In this case, the `id=2` in the URL signifies a request to fetch all records under the category with ID 2, which in my application, corresponds to the 'Game' category. As shown in the screenshot, the page correctly reflects this request by displaying content associated with the 'Game' category.
+
+This URL-driven data retrieval is a common pattern across various actions in both the categories and products controllers of my Rails application. When users need to interact with the database, they send requests through different URL endpoints. The routes file then checks if the endpoint exists. If it does, the route directs the request to the corresponding action in the relevant controller, ensuring smooth and accurate data handling.
  </details>  
   
   ---
@@ -288,37 +403,65 @@ Just like all the other action in on matter categories or products controller, w
 
 ![product schema](./docs/product/product_schema.png)
 ![product foreign key](./docs/product/foreign%20key%20product.png)
-And then I goes to the product part which is belongs to category and has a category id as a foreign key. Which means I 
+Moving on to the product component of my application, each product is intrinsically linked to a category, denoted by a 'category_id' acting as a foreign key. This relationship underscores the interconnected nature of products and their respective categories.
 
-In this schema, we can see there are a lot of necessary attributes to identify and depict the gaming item for sale. Title represents the name. Status represents the current item availability. When it's set to 'not available' for whatever reason, the item won't appear on the page. The amount, price and description are the essential attributes that a product has.
+In the product schema, several key attributes are crucial for defining and describing the gaming items available for sale:
 
-The uuid is a unique identifier for itself attaching on a invoice to keep tracking of this product. The user_uuid assists implementing the user authorization with the help form pundit. In my app, the main purpose is products all the user can create a new product. But update, edit or delete function of specific item only apply to the owner or admin. By attaching the user_uuid to product I can track who is the owner of this item. With the help from Pundit gem which focus on user authorization, I can write some short-circuit evaluation in product policy file to determine if the user is admin or the item owner.
+* Title: Serves as the name of the product.
+* Status: Indicates the current availability of the item. An item marked as 'not available' will not be displayed on the page.
+* Amount, Price, and Description: These are fundamental attributes that provide essential information about each product.
+Additionally, two unique UUIDs play significant roles:
+
+* Product UUID: Acts as a unique identifier for each product, essential for tracking purposes, especially in invoicing.
+* User UUID: Facilitates user authorization, in conjunction with the Pundit gem. This UUID helps determine product ownership, crucial for actions such as creating, updating, editing, or deleting products. In my application, all users can create new products, but modifications are restricted to the product owner or admin.
+
 ![product policy](./docs/product/product%20policy.png).
-In the three action update, edit and destroy which need authorization to process, the short-circuit evaluates if the current user is admin user. If yes, then doesn't need to evaluation the right side and evaluates to true immediately, If not, then it will evaluate the right side by comparing the product’s attached user identifier with current user’s identifier. 
-![product controller1](./docs/product/product%20controller%201.png)
-And then by applying the `authorize @product` in the action, Pundit will help invoke the relevant name method in that model policy file. 
 
-While I finish the product data constraints in the schema then I have to define the front end input validations of product attribute to keep front end and database constraints in sync. Here are my product inputs validations.
+In the product policy file, short-circuit evaluation is used for actions requiring authorization, like update, edit, and destroy. This evaluation first checks if the current user is an admin. If so, the action is immediately authorized. If not, it then compares the product’s attached user UUID with the current user's UUID to determine ownership and accordingly grant or deny access.
+
+![product controller1](./docs/product/product%20controller%201.png)
+Further enhancing the authorization mechanism, the `authorize @product` command is implemented within the relevant action. This command prompts Pundit to activate the corresponding method in the model's policy file, ensuring that authorization checks are seamlessly aligned with user privileges.
+
+Having established the data constraints for products in the schema, my next step involves defining the front-end input validations. This is crucial to maintain consistency between the front-end user input and the back-end database constraints. The following outlines the validations I have applied to the product input fields.
+
 ![product validation](./docs/product/product%20model%20validation.png)
 And I need to identify the product relation with another model.
 
 ![product validation](./docs/product/product%20relation.png)
-The product belongs to category so it require a category exists first then can be created with the belongs to relationship.
+In my app's design, each product is intrinsically tied to a category. A product can only be created after its corresponding category exists, adhering to the 'belongs to' relationship in the database schema.
 
-One product has one shopping cart. In my app, one shopping cart only contain one specific item no matter how many of this items inside. Such as a user click three different products then the user has 3 shopping carts.
+Regarding the shopping cart functionality:
 
-When one product is initialized, the user_id is required and be attached to this product. So it belongs to one user at the begging.
+* Shopping Cart Association: Each product is linked to a single shopping cart. In my application's design, a shopping cart is exclusive to one specific product type, regardless of the quantity. For example, if a user selects three different products, they will have three separate shopping carts.
+At the time of product creation:
 
-One product has one attached image with the help from active storage which managing the assets storage with model in database.
+* User Association: A 'user_id' is essential and automatically attached to the product, signifying ownership. This establishes a 'belongs to' relationship with a user from the outset.
+For product imagery:
+
+* Image Storage: Each product has one associated image, managed via Active Storage. This framework handles asset storage in conjunction with the database model.
+
 ![product image](./docs/product/active%20storage.png)
-The has_one_attached sets up a one-to-one mapping between records and the image I had upload. Because in my app, only product model requires assets storage, therefore the record_id attribute in active storage attachments table map with each product id. Abd attachments table associate with blob table where actually store the image file by index blob_id.
 
-Just like shopping cart, one product has one order.
+* Active Storage Configuration: The has_one_attached relationship sets up a one-to-one mapping between products and their images. In my app, since only the product model requires asset storage, the 'record_id' attribute in the Active Storage attachments table corresponds to each product's ID. The attachments table, in turn, is linked to the blob table, where the actual image files are stored, referenced by 'blob_id'.
+Additionally:
 
-On the home page, I have a searching button which provides searching feature for user to spot the items that they want efficiently. 
+* Order Association: Similar to the shopping cart, each product is associated with one order.
+On the home page:
+
+* Search Functionality: A search button is provided to enhance user convenience, allowing for efficient location and selection of desired items.
+
 ![product searching](./docs/product/product%20searching.png)
-In the SQL query the `like` operator is used in a `WHERE` clause to search for a specified pattern in a column.
-The `%` represents zero, one, or multiple characters. Therefore, when user type some word in the searching bar, the params will be send to the `params[:w]`block, and the like operator will search all the title that has this specific character piece in the title. The second searching bar can search all the items that under the same category
+In my application's SQL queries, the `LIKE` operator plays a pivotal role within the `WHERE` clause, enabling the search for specific patterns within a column. This operator is particularly useful for implementing search functionalities in the application.
+
+The wildcard character `%` used with the `LIKE` operator is versatile, representing zero, one, or multiple characters. Here's how it functions in the search process:
+
+* User Input Handling: When a user inputs a search term in the search bar, this input is passed to the `params[:w]` block in the application's code.
+
+* Pattern Matching: The `LIKE` operator then uses this input to search for titles in the database that contain the specified character sequence, regardless of its position in the string.
+
+Additionally, there's a second search functionality:
+
+* Category-Based Search: The second search bar allows users to filter items based on their categories. This feature enhances the user's ability to navigate and find products within specific categories efficiently.
  </details>  
   
   ---
@@ -330,15 +473,15 @@ The `%` represents zero, one, or multiple characters. Therefore, when user type 
 
 ![cart schema](./docs/shopping_cart/shopping_cart_schema.png)
 
-From the shopping cart schema we can see the user_id attribute can be null while one shopping cart record is created. Because I need a changeable user identifier to keep track of the owner of this cart record. Obviously I can rewrite the user_id, therefore a changeable user_uuid is needed if I want to implement a task when a viewer doesn't log in and still can click the product to add to a shopping cart and after the viewer log in or sign up, the shopping cart is still trackable and build relationship.
+In the design of the shopping cart schema, a key feature is the flexibility of the `user_id` attribute. Initially, when a shopping cart record is created, the `user_id` can be null. This flexibility is crucial for tracking the cart's owner, especially before a user logs in or creates an account.
+
 ![cart relationship](./docs/shopping_cart/shopping%20cart%20relation.png)
-One shopping cart belongs to one user or a virtual user by assigning a virtual uuid.
+* Virtual User UUID: To accommodate users who have not yet logged in but wish to add products to a shopping cart, I implemented a system of virtual user UUIDs. This allows for the tracking and later assignment of the shopping cart to a specific user account once the viewer logs in or signs up.
 
-One shopping cart requires a specific product exists and belongs to te when it's created.
+* Shopping Cart and Product Relationship: Each shopping cart is associated with a specific product, and this relationship is established at the time of the cart's creation. The essential attributes within the shopping cart model are the product_id and amount, indicating which item is in the cart and in what quantity.
 
-Product id and amount are the essential attributes which represent what it is and how many of the item in the shopping cart model.
+Now, let me walk you through the process that occurs when a user clicks the `Add to cart` button on the homepage and the subsequent actions that take place behind the scenes.
 
-Ok then let me explain the process of clicking an 'Add to cart' button on homepage and what is behind the scene. 
 ![button](./docs/shopping_cart/button.png)
 When this button is click, it actually pass that product record as a argument into a helper method as following:
 ![product to cart](./docs/shopping_cart/product%20to%20cart.png)
@@ -403,7 +546,7 @@ In my order schema, order model try to gather all the necessary information towa
 One order belongs to one user, one product and one address, meaning that if I want to create a new order, I need to login as a user and an address already attached to my account and also I have at least one product in the shopping cart. As a result this new order page has to be logged in and provide address first.
 
 ![order new](./docs/orders/order%20new%20action.png)
-In the render page, by fetching all the user owned shopping carts by session user uuid and the only address record plus the product image. All the required data is ready and can send to the real payment page. Unfortunately, I don't have enough time to implement this. The weird user role attribute hold me back for days. I will try to implement this afterward.
+In the render page, by fetching all the user owned shopping carts by session user uuid and the only address record plus the product image. All the required data is ready and can send to the real payment page.
 
 
 </details>  
@@ -413,22 +556,22 @@ In the render page, by fetching all the user owned shopping carts by session use
 ### Third Party Services
 
 * Trello
-Trello is a project management system that employs Kanban boards, cards, and lists to manager projects, tasks and help tracking of the project progression. User can organize their resource materials in real-time. As with Kanban, user can manager several projects effectively by applying visual ticklers. You can check the project progress among group members.
+Trello is a versatile project management tool that utilizes Kanban boards, cards, and lists. It's designed to manage projects and tasks while tracking progress effectively. Users can organize resources in real-time and manage multiple projects simultaneously with visual cues. Trello facilitates easy monitoring of project progression within teams.
 
 * Github
-Github is a code hosting platform for version control and teamwork. GitHub is the best place to share code with friends, partners, and even strangers. 
+GitHub is a premier platform for code hosting, version control, and collaborative development. It's an ideal space for sharing code with colleagues, peers, or the wider open-source community, fostering both teamwork and individual project growth.
 
 * PostgreSQL
-PostgreSQL is an open source database management system. SQL and JSON for relational and non-relational queries are supported by PostgreSQL and it supports advanced data types as well.
+PostgreSQL is a robust open-source database management system. It supports a wide range of queries, both SQL and JSON, for handling relational and non-relational data. PostgreSQL is known for its advanced data types and versatile functionality.
 
 * Heroku
-Heroku is a fully-managed platform that provide easy path to deploy apps effectively. It enables developers to build, operate applications in the cloud environment.
+Heroku offers a fully-managed platform, streamlining the deployment and operation of applications in the cloud. Its user-friendly interface and comprehensive services simplify the process of bringing applications to a wider audience.
 
 * Amazon Web Services
-Amazon Web Services is a cloud service provider that offers various compute power, database storage, content delivery and services that are accessible over the public. As in my app, AWS is used to uphold our image assets and keep the image available to any visitors who visit my app.
+AWS is a comprehensive cloud service provider, offering extensive computing power, database storage, and content delivery. In my app, AWS plays a critical role in hosting image assets, ensuring they are readily available to users.
 
 * Draw io
-Draw.io is open-sourced diagram and flowchart software. If I need to draw sitemap, Entity Relationship Diagram, flow chart or any other diagram design, Draw.io will be my first option.
+Draw.io is an open-source tool for creating diagrams and flowcharts. Whether it's a sitemap, Entity Relationship Diagram, or any other form of diagrammatic representation, Draw.io is my go-to resource for clear and concise visualizations.
 
 * Balsamiq
-Balsamiq wireframes design software that enables users to work together on making mockups and manager versions control.If my assignments requires designing wireframes of app, then Balsamiq would be a good choice.
+Balsamiq is a collaborative wireframe design tool, perfect for working on mockups and managing version control. It's particularly useful when my projects require the design of wireframes, offering an intuitive platform for shaping application interfaces.
